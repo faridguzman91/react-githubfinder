@@ -1,6 +1,7 @@
 # github profile finder
 
-github profile finder using tailwindcss and daisyui
+github profile finder using tailwindcss and daisyUI, useReducer() to pull state from component
+context provider to pass down context
 
 
 ### `npm start`

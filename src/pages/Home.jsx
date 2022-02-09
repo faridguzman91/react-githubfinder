@@ -1,5 +1,6 @@
 import React from 'react'
 import UserResults from '../components/USERS/UserResults'
+import UserSearch from '../components/USERS/UserSearch'
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
 
       
       {/* SEARCH COMPONENT */}
+      <UserSearch />
       <UserResults />
     </>
   )
