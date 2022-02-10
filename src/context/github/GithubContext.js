@@ -52,7 +52,7 @@ const searchUsers = async (text) => {
     //  setUsers(data);
     //  setLoading(false);
 
-    //instead:
+    //instead use reducer actions:
 
     dispatch({
       type: "GET_USERS",
@@ -60,7 +60,7 @@ const searchUsers = async (text) => {
     });
   };
 
-  //set loading
+  //set loading, action dispatch
 
   const setLoading = () => dispatch({
       type: 'SET_LOADING',
