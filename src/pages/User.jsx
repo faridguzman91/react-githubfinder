@@ -5,24 +5,22 @@ import { useParams } from "react-router-dom";
 import {FaCodepen, FaStore, FaUserFriends, FaUsers} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import Spinner from "../components/layout/Spinner";
+import RepoList from "../components/repos/RepoList";
 
 function User() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { getUser, user, loading, getUserRepos, repos } = useContext(GithubContext);
 
   const params = useParams();
 
   useEffect(() => {
     //run getUser once with [] dependency
     getUser(params.login);
+    getUserRepos(params.login);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //deconstruct user api
   const { name, type, avatar_url, location, bio, blog, twitter_username, login, html_url, followers, following, public_repos, public_gists, hireable,} = user
-
-
-
-
 
 
   if (loading) {
@@ -154,6 +152,7 @@ function User() {
           </div>
 
         </div>
+        <RepoList repos={repos} />
       </div>
     </>
   );

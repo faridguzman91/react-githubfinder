@@ -3,6 +3,11 @@
 github profile finder using tailwindcss and daisyUI, useReducer() to pull state from component
 context provider to pass down context
 
+<br>
+
+visit  : https://react-githubfinder-theta.vercel.app/
+
+
 
 ### `npm start`
 
