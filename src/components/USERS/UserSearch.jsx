@@ -2,25 +2,29 @@ import React from "react";
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
+import { searchUsers } from "../../context/github/GithubActions";
 
 function UserSearch() {
   const [text, setText] = useState("");
 
-  const {setAlert} = useContext(AlertContext) 
+  const { setAlert } = useContext(AlertContext);
 
-  const {users, searchUsers, clearSearch} = useContext(GithubContext)
+  const { users, dispatch, } = useContext(GithubContext);
 
   const handleChange = (event) => setText(event.target.value);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (text === "") {
-      setAlert("please enter something", 'error');
+      setAlert("please enter something", "error");
     } else {
-      //@todo - search users
-
-      searchUsers(text)
+      dispatch({ type: "SET_LOADING" });
+      const users = await searchUsers(text);
+      dispatch({
+        type: "GET_USERS",
+        payload: users,
+      });
       setText("");
     }
   };
@@ -51,7 +55,9 @@ function UserSearch() {
       {/* //check if users.length value is more than nothing and display clear button */}
       {users.length > 0 && (
         <div>
-          <button onClick={clearSearch} className="btn btn-ghost btn-lg">clear</button>
+          <button onClick={() => dispatch({ type: 'CLEAR_USERS'})} className="btn btn-ghost btn-lg">
+            clear
+          </button>
         </div>
       )}
     </div>

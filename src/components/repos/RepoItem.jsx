@@ -45,7 +45,7 @@ function RepoItem({ repo }) {
 }
 
 RepoItem.propTypes = {
-  repo: <PropTypes className="object isRequired"></PropTypes>,
+  repo: PropTypes.object.isRequired
 };
 
 export default RepoItem;
