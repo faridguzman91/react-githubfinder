@@ -14,7 +14,7 @@ const github = axios.create({
 //set search value
 
 export const searchUsers = async (text) => {
-  //    setLoading();
+
   const params = new URLSearchParams({
     q: text,
   });
