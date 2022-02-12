@@ -7,23 +7,23 @@ const githubReducer = (state, action) => {
         users: action.payload,
         loading: false,
       };
-    case "GET_USER":
+//get user data and repo data in one case
+
+    case "GET_USER_AND_REPOS":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
+        repos: action.payload.repos,
         loading: false,
       };
-    case "GET_REPOS":
-      return {
-        ...state,
-        repos: action.payload,
-        loading: false,
-      };
+
     case "SET_LOADING":
       return {
         ...state,
         loading: true,
       };
+
+      //clear all users action for clear button
     case "CLEAR_USERS":
       return {
         ...state,
