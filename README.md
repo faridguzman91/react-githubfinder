@@ -3,6 +3,8 @@
 github profile finder using tailwindcss and daisyUI, useReducer() to pull state from component
 context provider to pass down context
 
+used axios to clean up reducers fetch api
+
 <br>
 
 visit  : https://react-githubfinder-theta.vercel.app/
